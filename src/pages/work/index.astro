@@ -2,7 +2,49 @@
 import PageLayout from "@layouts/PageLayout.astro";
 import Container from "@components/Container.astro";
 import { WORK } from "@consts";
-import { CV_DATA } from "@/cv-data";
+
+const experience = [
+  {
+    title: "Data Engineer",
+    company: "Solita",
+    duration: "Mar 2025 – Present (5 months)",
+    location: "Stockholm, Stockholm County, Sweden",
+    description: "",
+    keySkills: ["Terraform", "DevOps", "plus 3 additional skills (not listed)"]
+  },
+  {
+    title: "Data & ML",
+    company: "Braive",
+    duration: "Aug 2024 – Feb 2025 (7 months)",
+    location: "Stockholm, Stockholm County, Sweden — On‑site",
+    description: "Designed and developed the data platform at Braive, processing raw patient and clinician event data and managing a large dbt codebase. Analysed app‑usage data to optimise user funnels, resulting in improved onboarding and higher user retention. Performed AI proofs‑of‑concept in the Braive app to automate clinician workflows. Technology stack included: Twilio Segment (event tracking), PII masking, Fivetran (ingestion), BigQuery/dbt/Looker, Azure OpenAI API.",
+    keySkills: ["Data Architecture", "Google Cloud Platform (GCP)", "plus 4 additional skills (not listed)"]
+  },
+  {
+    title: "Master Thesis Intern",
+    company: "RISE Research Institutes of Sweden",
+    duration: "Jan 2024 – Jun 2024 (6 months)",
+    location: "Gothenburg, Västra Götaland County, Sweden — On‑site",
+    description: "Worked as an ML engineer on a project aimed at improving data quality for autonomous‑driving systems using Generative AI solutions. Designed, implemented and trained models, delivering production‑ready solutions to developers at Smart Eye.",
+    keySkills: ["End‑to‑End Project Management", "Autonomous Driving", "plus 1 additional skill (not listed)"]
+  },
+  {
+    title: "Data Scientist",
+    company: "Kungliga biblioteket (The National Library of Sweden)",
+    duration: "Jan 2023 – Dec 2023 (1 year)",
+    location: "Stockholm, Stockholm County, Sweden — Hybrid",
+    description: "Built complex data pipelines for large volumes of unstructured digitised materials, beginning with OCR‑based text extraction from PDFs. Ingested metadata via APIs and web‑scraping, designed data schemas, applied transformations in Python, and employed Hugging Face language models for NLP tasks.",
+    keySkills: ["Data Analytics", "Data Visualisation", "plus 2 additional skills (not listed)"]
+  },
+  {
+    title: "Course Coordinator & Lecturer in Statistics",
+    company: "Lund University",
+    duration: "Aug 2021 – Jan 2022 (6 months)",
+    location: "",
+    description: "Designed and taught undergraduate business courses covering design of experiments, unsupervised methods and regression.",
+    keySkills: ["Project Management"]
+  }
+];
 ---
 
 <PageLayout title={WORK.TITLE} description={WORK.DESCRIPTION}>
@@ -13,7 +55,7 @@ import { CV_DATA } from "@/cv-data";
       </div>
       <ul class="flex flex-col space-y-4">
         { 
-          CV_DATA.experience.map(entry => (
+          experience.map(entry => (
             <li class="animate">
               <div class="text-sm opacity-75">
                 {entry.duration}

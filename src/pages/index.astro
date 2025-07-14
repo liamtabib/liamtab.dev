@@ -5,7 +5,6 @@ import PageLayout from "@layouts/PageLayout.astro";
 import ArrowCard from "@components/ArrowCard.astro";
 import Link from "@components/Link.astro";
 import { SITE, HOME, SOCIALS } from "@consts";
-import { CV_DATA } from "@/cv-data";
 
 const blog = (await getCollection("blog"))
   .filter(post => !post.data.draft)
@@ -17,20 +16,37 @@ const projects = (await getCollection("projects"))
   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
   .slice(0,SITE.NUM_PROJECTS_ON_HOMEPAGE);
 
-const work = CV_DATA.experience.slice(0, SITE.NUM_WORKS_ON_HOMEPAGE);
+const work = [
+  {
+    title: "Data Engineer",
+    company: "Solita",
+    duration: "Mar 2025 – Present (5 months)",
+    location: "Stockholm, Stockholm County, Sweden",
+    description: "",
+    keySkills: ["Terraform", "DevOps", "plus 3 additional skills (not listed)"]
+  },
+  {
+    title: "Data & ML",
+    company: "Braive",
+    duration: "Aug 2024 – Feb 2025 (7 months)",
+    location: "Stockholm, Stockholm County, Sweden — On‑site",
+    description: "Designed and developed the data platform at Braive, processing raw patient and clinician event data and managing a large dbt codebase. Analysed app‑usage data to optimise user funnels, resulting in improved onboarding and higher user retention. Performed AI proofs‑of‑concept in the Braive app to automate clinician workflows. Technology stack included: Twilio Segment (event tracking), PII masking, Fivetran (ingestion), BigQuery/dbt/Looker, Azure OpenAI API.",
+    keySkills: ["Data Architecture", "Google Cloud Platform (GCP)", "plus 4 additional skills (not listed)"]
+  }
+].slice(0, SITE.NUM_WORKS_ON_HOMEPAGE);
 
 ---
 
 <PageLayout title={HOME.TITLE} description={HOME.DESCRIPTION}>
   <Container>
     <h4 class="animate font-semibold text-black dark:text-white">
-      Hi, I'm {CV_DATA.name} <span class="text-xl">👋🏻</span> 
+      Hi, I'm Liam Tabibzadeh <span class="text-xl">👋🏻</span> 
     </h4>
     <div class="space-y-16">
       <section>
         <article class="space-y-4">
           <p class="animate">
-            {CV_DATA.about}
+            Fullstack Data Engineer passionate about building robust, end-to-end systems that transform raw data into meaningful insights. What I enjoy most about my work is the combination of hands-on technical problem solving and the need to understand business context through collaboration with stakeholders.
           </p>
         </article>
       </section>

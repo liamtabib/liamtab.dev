@@ -1,7 +1,20 @@
 ---
 import PageLayout from "@layouts/PageLayout.astro";
 import Container from "@components/Container.astro";
-import { CV_DATA } from "@/cv-data";
+
+const education = [
+  {
+    institution: "Uppsala University",
+    degree: "Master of Science (M.S.), Machine Learning",
+    duration: "2022–2024",
+    skills: ["Data Engineering", "Data Science", "plus 2 additional skills (not listed)"]
+  },
+  {
+    institution: "Uppsala University",
+    degree: "Bachelor of Science (B.S.), Statistics",
+    duration: "2018–2022"
+  }
+];
 ---
 
 <PageLayout title="About" description="About Liam Tabibzadeh">
@@ -14,7 +27,7 @@ import { CV_DATA } from "@/cv-data";
       <section class="animate space-y-4">
         <article>
           <p class="text-base leading-relaxed">
-            {CV_DATA.about}
+            Fullstack Data Engineer passionate about building robust, end-to-end systems that transform raw data into meaningful insights. What I enjoy most about my work is the combination of hands-on technical problem solving and the need to understand business context through collaboration with stakeholders.
           </p>
         </article>
       </section>
@@ -24,7 +37,7 @@ import { CV_DATA } from "@/cv-data";
           Education
         </h2>
         <ul class="flex flex-col space-y-4">
-          {CV_DATA.education.map(entry => (
+          {education.map(entry => (
             <li>
               <div class="font-semibold text-black dark:text-white">
                 {entry.degree}
