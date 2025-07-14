@@ -1,0 +1,40 @@
+Name: Liam Tabibzadeh
+
+ABOUT
+Fullstack Data Engineer passionate about building robust, end-to-end systems that transform raw data into meaningful insights. What I enjoy most about my work is the combination of hands-on technical problem solving and the need to understand business context through collaboration with stakeholders.
+
+EXPERIENCE
+1. Data Engineer — Solita
+   • Mar 2025 – Present (5 months)  
+   • Stockholm, Stockholm County, Sweden  
+   • Key skills: Terraform, DevOps, plus 3 additional skills (not listed)
+
+2. Data & ML — Braive (Full‑time)
+   • Aug 2024 – Feb 2025 (7 months)  
+   • Stockholm, Stockholm County, Sweden — On‑site  
+   • Designed and developed the data platform at Braive, processing raw patient and clinician event data and managing a large dbt codebase. Analysed app‑usage data to optimise user funnels, resulting in improved onboarding and higher user retention. Performed AI proofs‑of‑concept in the Braive app to automate clinician workflows.  
+   • Technology stack included: Twilio Segment (event tracking), PII masking, Fivetran (ingestion), BigQuery/dbt/Looker, Azure OpenAI API.  
+   • Key skills: Data Architecture, Google Cloud Platform (GCP), plus 4 additional skills (not listed)
+
+3. Master Thesis Intern — RISE Research Institutes of Sweden (Full‑time)
+   • Jan 2024 – Jun 2024 (6 months)  
+   • Gothenburg, Västra Götaland County, Sweden — On‑site  
+   • Worked as an ML engineer on a project aimed at improving data quality for autonomous‑driving systems using Generative AI solutions. Designed, implemented and trained models, delivering production‑ready solutions to developers at Smart Eye.  
+   • Key skills: End‑to‑End Project Management, Autonomous Driving, plus 1 additional skill (not listed)
+
+4. Data Scientist — Kungliga biblioteket (The National Library of Sweden)
+   • Jan 2023 – Dec 2023 (1 year)  
+   • Stockholm, Stockholm County, Sweden — Hybrid  
+   • Built complex data pipelines for large volumes of unstructured digitised materials, beginning with OCR‑based text extraction from PDFs. Ingested metadata via APIs and web‑scraping, designed data schemas, applied transformations in Python, and employed Hugging Face language models for NLP tasks.  
+   • Key skills: Data Analytics, Data Visualisation, plus 2 additional skills (not listed)
+
+5. Course Coordinator & Lecturer in Statistics — Lund University
+   • Aug 2021 – Jan 2022 (6 months)  
+   • Designed and taught undergraduate business courses covering design of experiments, unsupervised methods and regression.  
+   • Key skill: Project Management
+
+EDUCATION
+• Uppsala University — Master of Science (M.S.), Machine Learning (2022–2024)  
+  ‑ Related skills: Data Engineering, Data Science, plus 2 additional skills (not listed)
+
+• Uppsala University — Bachelor of Science (B.S.), Statistics (2018–2022)

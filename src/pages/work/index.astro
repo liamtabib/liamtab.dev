@@ -1,19 +1,8 @@
 ---
-import { getCollection } from "astro:content";
 import PageLayout from "@layouts/PageLayout.astro";
 import Container from "@components/Container.astro";
-import { dateRange } from "@lib/utils";
 import { WORK } from "@consts";
-
-const collection = (await getCollection("work"))
-  .sort((a, b) => new Date(b.data.dateStart).valueOf() - new Date(a.data.dateStart).valueOf());
-
-const work = await Promise.all(
-  collection.map(async (item) => {
-    const { Content } = await item.render();
-    return { ...item, Content };
-  })
-);
+import { CV_DATA } from "@/cv-data";
 ---
 
 <PageLayout title={WORK.TITLE} description={WORK.DESCRIPTION}>
@@ -24,20 +13,28 @@ const work = await Promise.all(
       </div>
       <ul class="flex flex-col space-y-4">
         { 
-          work.map(entry => (
+          CV_DATA.experience.map(entry => (
             <li class="animate">
               <div class="text-sm opacity-75">
-                {dateRange(entry.data.dateStart, entry.data.dateEnd)}
+                {entry.duration}
               </div>
               <div class="font-semibold text-black dark:text-white">
-                {entry.data.company}
+                {entry.company}
               </div>
               <div class="text-sm opacity-75">
-                {entry.data.role}
+                {entry.title}
               </div>
-              <article>
-                <entry.Content />
-              </article>
+              <div class="text-sm opacity-75 mb-2">
+                {entry.location}
+              </div>
+              {entry.description && (
+                <article class="text-sm mb-2">
+                  <p>{entry.description}</p>
+                </article>
+              )}
+              <div class="text-sm opacity-75">
+                <strong>Key skills:</strong> {entry.keySkills.join(", ")}
+              </div>
             </li>
           ))
         }
