@@ -1,79 +1,29 @@
 ---
-title: "Astro Nano"
-description: "Minimal portfolio and blog build with astro and no frameworks."
-date: "Mar 26 2024"
-demoURL: "https://astro-nano-demo.vercel.app"
-repoURL: "https://github.com/markhorn-dev/astro-nano"
+title: "Controllable Synthetic Data Generation"
+description: "Gen AI pipeline that instantly generates realistic, customizable driver faces"
+date: "Mar 20 2024"
+repoURL: "https://github.com/liamtabib/ML-Pipeline-for-Controllable-Synthetic-Data-Generation"
 ---
 
-![Astro Nano](/astro-nano.png)
+Created a Gen AI pipeline that instantly generates realistic, customizable driver faces—providing a low‑cost stream of rare, high‑impact data that sharpens the accuracy of autonomous‑driving models.
 
-Astro Nano is a static, minimalist, lightweight, lightning fast portfolio and blog theme.
+## Features
 
-Built with Astro, Tailwind and Typescript, an no frameworks.
+- **Realistic Face Generation**: Creates highly realistic driver faces using generative AI
+- **Customizable Parameters**: Allows control over facial features, expressions, and demographics
+- **High-Impact Data**: Provides rare data scenarios that improve model accuracy
+- **Cost-Effective**: Low-cost alternative to collecting real-world driver data
+- **Scalable Pipeline**: Rapidly generates large datasets for training
 
-It was designed as an even more minimal theme than my popular theme [Astro Sphere](https://github.com/markhorn-dev/astro-sphere)
+## Tech Stack
 
-## 🚀 Deploy your own
+- **Language**: Python
+- **Framework**: PyTorch
+- **Technologies**: Computer Vision, AI
+- **Applications**: Autonomous driving, synthetic data generation
 
-<div class="flex gap-2">
-  <a target="_blank" aria-label="Deploy with Vercel" href="https://vercel.com/new/clone?repository-url=https://github.com/markhorn-dev/astro-nano">
-    <img src="/deploy_vercel.svg" />
-  </a>
-  <a target="_blank" aria-label="Deploy with Netlify" href="https://app.netlify.com/start/deploy?repository=https://github.com/markhorn-dev/astro-nano">
-    <img src="/deploy_netlify.svg" />
-  </a>
-</div>
+## Impact
 
-## 📋 Features
+The solution enabled an autonomous‑driving company to rapidly expand its synthetic training data and improve its AD models. This approach significantly reduces the cost and time required to collect diverse driver data while maintaining high quality and realism.
 
-- ✅ 100/100 Lighthouse performance
-- ✅ Responsive
-- ✅ Accessible
-- ✅ SEO-friendly
-- ✅ Typesafe
-- ✅ Minimal style
-- ✅ Light/Dark Theme
-- ✅ Animated UI
-- ✅ Tailwind styling
-- ✅ Auto generated sitemap
-- ✅ Auto generated RSS Feed
-- ✅ Markdown support
-- ✅ MDX Support (components in your markdown)
-
-## 💯 Lighthouse score
-![Astro Nano Lighthouse Score](/lighthouse.png)
-
-## 🕊️ Lightweight
-No frameworks or added bulk
-
-## ⚡︎ Fast
-Rendered in ~40ms on localhost
-
-## 📄 Configuration
-
-The blog posts on the demo serve as the documentation and configuration.
-
-## 💻 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-Replace npm with your package manager of choice. `npm`, `pnpm`, `yarn`, `bun`, etc
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run dev:network`     | Starts local dev server on local network         |
-| `npm run sync`            | Generates TypeScript types for all Astro modules.|
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run preview:network` | Preview build on local network                   |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-| `npm run lint`            | Run ESLint                                       |
-| `npm run lint:fix`        | Auto-fix ESLint issues                           |
-
-## 🏛️ License
-
-MIT
+This project demonstrates my expertise in generative AI, computer vision, and building scalable ML pipelines for real-world applications.
