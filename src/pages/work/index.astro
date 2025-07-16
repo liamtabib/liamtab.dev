@@ -7,41 +7,41 @@ const experience = [
   {
     title: "Data Engineer",
     company: "Solita",
-    duration: "Mar 2025 – Present (5 months)",
+    duration: "Mar 2025 - Current",
     location: "Stockholm, Stockholm County, Sweden",
-    description: "",
+    description: "Currently, I am a data engineer at Solita where I consult on the design and development of data platforms.<br><br>✦ Built and maintained complex data pipelines, including API endpoints to transformations.<br>✦ Visualization of customer journeys, identification of friction in digital flows, and prediction of needs during different stages of the customer journey.<br>✦ Data governance, PII techniques, and workflow orchestration.",
     keySkills: ["Terraform", "DevOps", "plus 3 additional skills (not listed)"]
   },
   {
-    title: "Data & ML",
-    company: "Braive",
-    duration: "Aug 2024 – Feb 2025 (7 months)",
-    location: "Stockholm, Stockholm County, Sweden — On‑site",
-    description: "Designed and developed the data platform at Braive, processing raw patient and clinician event data and managing a large dbt codebase. Analysed app‑usage data to optimise user funnels, resulting in improved onboarding and higher user retention. Performed AI proofs‑of‑concept in the Braive app to automate clinician workflows. Technology stack included: Twilio Segment (event tracking), PII masking, Fivetran (ingestion), BigQuery/dbt/Looker, Azure OpenAI API.",
-    keySkills: ["Data Architecture", "Google Cloud Platform (GCP)", "plus 4 additional skills (not listed)"]
+    title: "Data Scientist",
+    company: "Braive, Mental Healthcare App",
+    duration: "Aug 2024 - Mar 2025",
+    location: "Stockholm, Stockholm County, Sweden — Hybrid",
+    description: "✦ Designed and developed the data platform at Braive, processing raw patients and clinicians event data and managing a large dbt codebase.<br>✦ Analysis of app usage data to optimize user funnels, resulting in improved onboarding and higher user retention.<br>✦ Performed AI PoCs in the braive app for automating the clinician workflow.",
+    keySkills: ["End‑to‑End Project Management", "Docker", "plus 6 additional skills (not listed)"]
   },
   {
     title: "Master Thesis Intern",
     company: "RISE Research Institutes of Sweden",
-    duration: "Jan 2024 – Jun 2024 (6 months)",
+    duration: "Jan 2024 - Jun 2024",
     location: "Gothenburg, Västra Götaland County, Sweden — On‑site",
-    description: "Worked as an ML engineer on a project aimed at improving data quality for autonomous‑driving systems using Generative AI solutions. Designed, implemented and trained models, delivering production‑ready solutions to developers at Smart Eye.",
+    description: "✦ Led a research heavy cross-functional project between RISE and Smart Eye.<br>✦ Designed and implemented production-ready data synthesis methods.<br>✦ Improved the accuracy of autonomous‑driving models for the client.",
     keySkills: ["End‑to‑End Project Management", "Autonomous Driving", "plus 1 additional skill (not listed)"]
   },
   {
     title: "Data Scientist",
-    company: "Kungliga biblioteket (The National Library of Sweden)",
-    duration: "Jan 2023 – Dec 2023 (1 year)",
+    company: "KBLab, The National Library of Sweden",
+    duration: "Jan 2023 - Dec 2023",
     location: "Stockholm, Stockholm County, Sweden — Hybrid",
-    description: "Built complex data pipelines for large volumes of unstructured digitised materials, beginning with OCR‑based text extraction from PDFs. Ingested metadata via APIs and web‑scraping, designed data schemas, applied transformations in Python, and employed Hugging Face language models for NLP tasks.",
+    description: "✦ Worked with large volumes of unstructured data from digitized materials, building complex pipelines including from APIs, OCR systems from PDFs, and AI models in Huggingface.<br>✦ Developed and curated open source datasets, including the parliamentary proceedings, increasing transparency into the Swedish government.<br>✦ Helped with the training of Swedish Large Language models including KBWhisper.",
     keySkills: ["Data Analytics", "Data Visualisation", "plus 2 additional skills (not listed)"]
   },
   {
     title: "Course Coordinator & Lecturer in Statistics",
     company: "Lund University",
-    duration: "Aug 2021 – Jan 2022 (6 months)",
+    duration: "Aug 2021 - Jan 2022",
     location: "",
-    description: "Designed and taught undergraduate business courses covering design of experiments, unsupervised methods and regression.",
+    description: "✦ Designed coursework and selected material for course in statistics.<br>✦ Held lectures for 50 students, both physically and remotely, including video recordings.<br>✦ Taught experimental design, unsupervised classification, and regression methods.",
     keySkills: ["Project Management"]
   }
 ];
@@ -57,34 +57,52 @@ const experience = [
         { 
           experience.map(entry => (
             <li class="animate">
-              <div class="text-sm opacity-75">
-                {entry.duration}
-              </div>
               <div class="font-semibold text-black dark:text-white">
                 {entry.company}
               </div>
               <div class="text-sm opacity-75">
                 {entry.title}
               </div>
-              <div class="text-sm opacity-75 mb-2">
-                {entry.location}
+              <div class="text-sm opacity-75">
+                {entry.duration}
               </div>
               {entry.description && (
-                <article class="text-sm mb-2">
-                  <p>{entry.description}</p>
+                <article class="mt-2">
+                  <p set:html={entry.description}></p>
                 </article>
               )}
-              <div class="text-sm opacity-75">
-                <strong>Key skills:</strong> {entry.keySkills.join(", ")}
-              </div>
             </li>
           ))
         }
       </ul>
-<!-- 
-      <ul class="animate flex flex-col gap-4">
-
-      </ul> -->
+      
+      <div class="animate font-semibold text-black dark:text-white">
+        Education
+      </div>
+      <ul class="flex flex-col space-y-4">
+        <li class="animate">
+          <div class="font-semibold text-black dark:text-white">
+            Uppsala University
+          </div>
+          <div class="text-sm opacity-75">
+            Msc - Machine Learning
+          </div>
+          <div class="text-sm opacity-75">
+            Aug 2022 - Jun 2024
+          </div>
+        </li>
+        <li class="animate">
+          <div class="font-semibold text-black dark:text-white">
+            Uppsala University
+          </div>
+          <div class="text-sm opacity-75">
+            Bsc - Mathematics and Statistics
+          </div>
+          <div class="text-sm opacity-75">
+            Aug 2018 - Jun 2022
+          </div>
+        </li>
+      </ul>
     </div>
   </Container>
 </PageLayout>
