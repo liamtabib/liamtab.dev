@@ -80,6 +80,7 @@ const { title, description, image = "/nano.png" } = Astro.props;
     preloadTheme();
     onScroll();
     animate();
+    initEyeTracking();
 
     const backToTop = document.getElementById("back-to-top");
     backToTop?.addEventListener("click", (event) => scrollToTop(event));
@@ -87,22 +88,12 @@ const { title, description, image = "/nano.png" } = Astro.props;
     const backToPrev = document.getElementById("back-to-prev");
     backToPrev?.addEventListener("click", () => window.history.back());
 
-    const lightThemeButton = document.getElementById("light-theme-button");
-    lightThemeButton?.addEventListener("click", () => {
-      localStorage.setItem("theme", "light");
-      toggleTheme(false);
-    });
-
-    const darkThemeButton = document.getElementById("dark-theme-button");
-    darkThemeButton?.addEventListener("click", () => {
-      localStorage.setItem("theme", "dark");
-      toggleTheme(true);
-    });
-
-    const systemThemeButton = document.getElementById("system-theme-button");
-    systemThemeButton?.addEventListener("click", () => {
-      localStorage.setItem("theme", "system");
-      toggleTheme(window.matchMedia("(prefers-color-scheme: dark)").matches);
+    const themeToggle = document.getElementById("theme-toggle");
+    themeToggle?.addEventListener("click", () => {
+      const isDark = document.documentElement.classList.contains("dark");
+      const newTheme = isDark ? "light" : "dark";
+      localStorage.setItem("theme", newTheme);
+      toggleTheme(!isDark);
     });
 
     window.matchMedia("(prefers-color-scheme: dark)")
@@ -178,6 +169,124 @@ function toggleTheme(dark) {
     } else {
       toggleTheme(window.matchMedia("(prefers-color-scheme: dark)").matches);
     }
+  }
+
+  function initEyeTracking() {
+    const leftEye = document.getElementById("left-eye");
+    const rightEye = document.getElementById("right-eye");
+    const head = document.getElementById("head");
+    const leftEar = document.getElementById("left-ear");
+    const rightEar = document.getElementById("right-ear");
+    const brand = document.getElementById("brand");
+
+    if (!leftEye || !rightEye || !head || !leftEar || !rightEar || !brand) return;
+
+    let isBlinking = false;
+    let blinkTimeout = null;
+    
+    // Initial positions
+    const initialPositions = {
+      head: { x: 90.5, y: 111.5 },
+      leftEye: { x: 77.5, y: 112 },
+      rightEye: { x: 103.5, y: 112 },
+      leftEar: { x: 60 },
+      rightEar: { x: 120 }
+    };
+
+    function handleMove(clientX, clientY) {
+      const rect = brand.getBoundingClientRect();
+      const svgCenterX = rect.left + rect.width / 2;
+      const svgCenterY = rect.top + rect.height / 2;
+      const offsetX = clientX - svgCenterX;
+      const offsetY = clientY - svgCenterY;
+
+      // head
+      const maxHeadOffset = 6;
+      const headDistance = Math.sqrt(offsetX * offsetX + offsetY * offsetY);
+      const clampedHeadDistance = Math.min(headDistance, maxHeadOffset);
+      const headAngle = Math.atan2(offsetY, offsetX);
+      const headMoveX = clampedHeadDistance * Math.cos(headAngle);
+      const headMoveY = clampedHeadDistance * Math.sin(headAngle);
+
+      // eyes
+      const maxEyesOffset = 20;
+      const eyesDistance = headDistance;
+      const eyesAngle = headAngle;
+      const clampedEyesDistance = Math.min(eyesDistance, maxEyesOffset);
+      const eyeMoveX = clampedEyesDistance * Math.cos(eyesAngle);
+      const eyeMoveY = clampedEyesDistance * Math.sin(eyesAngle);
+
+      // ears
+      const earMoveFactor = 0.5;
+      const earMoveX = headMoveX * earMoveFactor;
+
+      // Update positions
+      const newHeadX = initialPositions.head.x + headMoveX;
+      const newHeadY = initialPositions.head.y + headMoveY;
+      const newLeftEyeX = initialPositions.leftEye.x + eyeMoveX;
+      const newLeftEyeY = initialPositions.leftEye.y + eyeMoveY;
+      const newRightEyeX = initialPositions.rightEye.x + eyeMoveX;
+      const newRightEyeY = initialPositions.rightEye.y + eyeMoveY;
+      const newLeftEarX = initialPositions.leftEar.x - earMoveX;
+      const newRightEarX = initialPositions.rightEar.x - earMoveX;
+
+      // Apply transformations
+      head.setAttribute("cx", newHeadX);
+      head.setAttribute("cy", newHeadY);
+      leftEye.setAttribute("cx", newLeftEyeX);
+      leftEye.setAttribute("cy", newLeftEyeY);
+      rightEye.setAttribute("cx", newRightEyeX);
+      rightEye.setAttribute("cy", newRightEyeY);
+      
+      // Update ear paths
+      leftEar.setAttribute("d", `M17 180L${newLeftEarX} 34L127 180H17Z`);
+      rightEar.setAttribute("d", `M163 180L${newRightEarX} 34L53 180H163Z`);
+    }
+
+    function handleMouseMove(event) {
+      handleMove(event.clientX, event.clientY);
+    }
+
+    function handleTouchMove(event) {
+      if (event.touches.length > 0) {
+        const touch = event.touches[0];
+        handleMove(touch.clientX, touch.clientY);
+      }
+    }
+
+    // Random blinking
+    function scheduleBlink() {
+      const nextBlinkInterval = Math.random() * 3000 + 2000; // 2-5 seconds
+      blinkTimeout = setTimeout(() => {
+        isBlinking = true;
+        leftEye.setAttribute("ry", "0");
+        rightEye.setAttribute("ry", "0");
+        
+        setTimeout(() => {
+          isBlinking = false;
+          leftEye.setAttribute("ry", "15");
+          rightEye.setAttribute("ry", "15");
+        }, 200);
+        
+        scheduleBlink();
+      }, nextBlinkInterval);
+    }
+
+    // Start event listeners
+    document.addEventListener("mousemove", handleMouseMove);
+    document.addEventListener("touchmove", handleTouchMove);
+    
+    // Start blinking
+    scheduleBlink();
+
+    // Cleanup function (though not used in this context)
+    return () => {
+      document.removeEventListener("mousemove", handleMouseMove);
+      document.removeEventListener("touchmove", handleTouchMove);
+      if (blinkTimeout) {
+        clearTimeout(blinkTimeout);
+      }
+    };
   }
 
   document.addEventListener("DOMContentLoaded", () => init());
