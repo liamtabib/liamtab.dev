@@ -2,7 +2,7 @@ import type { Site, Metadata, Socials } from "@types";
 
 export const SITE: Site = {
   NAME: "Liam Tabibzadeh",
-  EMAIL: "liam.tab7@gmail.com",
+  EMAIL: "liam@liamtab.dev",
   NUM_WORKS_ON_HOMEPAGE: 2,
   NUM_PROJECTS_ON_HOMEPAGE: 3,
 };
