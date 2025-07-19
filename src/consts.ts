@@ -26,7 +26,7 @@ export const PROJECTS: Metadata = {
 export const SOCIALS: Socials = [
   { 
     NAME: "github",
-    HREF: "https://github.com/liamtabibzadeh"
+    HREF: "https://github.com/liamtabib"
   },
   { 
     NAME: "linkedin",

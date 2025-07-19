@@ -1,64 +1,121 @@
-![Astro Nano](_astro_nano.png)
+# liamtab.dev
 
-Astro Nano is a static, minimalist, lightweight, lightning fast portfolio and blog theme.
+Personal portfolio and blog built with **Astro** and **TypeScript**. A clean, minimal platform for showcasing work, projects, and thoughts on data engineering and machine learning.
 
-Built with Astro, Tailwind and Typescript, an no frameworks.
+## Overview
 
-It was designed as an even more minimal theme than my popular theme [Astro Sphere](https://github.com/markhorn-dev/astro-sphere)
+This is a static site generator setup optimized for performance and developer experience. The site serves as both a professional portfolio and a platform for sharing technical projects and insights.
 
-## 🚀 Deploy your own
+**Key capabilities:**
+- Responsive design that works across all devices
+- Dark/light theme support with system preference detection
+- Content-driven architecture using Astro's content collections
+- TypeScript throughout for type safety
+- Tailwind CSS for styling consistency
 
-[![Deploy with Vercel](_deploy_vercel.svg)](https://vercel.com/new/clone?repository-url=https://github.com/markhorn-dev/astro-nano)  [![Deploy with Netlify](_deploy_netlify.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/markhorn-dev/astro-nano)
+## Quick Setup
 
-## 📋 Features
+```bash
+# Clone and install
+git clone https://github.com/liamtabib/liamtab.dev.git
+cd liamtab.dev
+npm install
 
-- ✅ 100/100 Lighthouse performance
-- ✅ Responsive
-- ✅ Accessible
-- ✅ SEO-friendly
-- ✅ Typesafe
-- ✅ Minimal style
-- ✅ Light/Dark Theme
-- ✅ Animated UI
-- ✅ Tailwind styling
-- ✅ Auto generated sitemap
-- ✅ Auto generated RSS Feed
-- ✅ Markdown support
-- ✅ MDX Support (components in your markdown)
+# Start development server
+npm run dev
+```
 
-## 💯 Lighthouse score
-![Astro Nano Lighthouse Score](_lighthouse.png)
+The site will be available at `http://localhost:4321`.
 
-## 🕊️ Lightweight
-No frameworks or added bulk
+## Tech Stack
 
-## ⚡︎ Fast
-Rendered in ~40ms on localhost
+- **Astro 5.x** - Static site generator with excellent performance
+- **TypeScript** - Type safety and improved DX
+- **Tailwind CSS** - Utility-first styling framework
+- **MDX** - Enhanced markdown with component support
 
-## 📄 Configuration
+## Project Structure
 
-The blog posts on the demo serve as the documentation and configuration.
+```
+src/
+├── components/          # Reusable UI components (Header, Footer, etc.)
+├── content/            
+│   ├── projects/       # Project case studies and demos
+│   └── work/           # Work experience entries
+├── layouts/            # Page templates and layouts
+├── pages/              # Site routes (/, /about, /projects, etc.)
+├── lib/                # Utilities and helper functions
+├── styles/             # Global CSS and theme definitions
+├── types.ts            # TypeScript type definitions
+└── consts.ts          # Site configuration and metadata
+```
 
-## 💻 Commands
+## Content Management
 
-All commands are run from the root of the project, from a terminal:
+### Projects
+Projects live in `src/content/projects/` as individual folders:
+```
+src/content/projects/my-project/
+├── index.md            # Project metadata and description
+└── assets/             # Images, diagrams, etc.
+```
 
-Replace npm with your package manager of choice. `npm`, `pnpm`, `yarn`, `bun`, etc
+Each project includes frontmatter for metadata (title, date, technologies used) and markdown content for the detailed description.
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run dev:network`     | Starts local dev server on local network         |
-| `npm run sync`            | Generates TypeScript types for all Astro modules.|
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run preview:network` | Preview build on local network                   |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-| `npm run lint`            | Run ESLint                                       |
-| `npm run lint:fix`        | Auto-fix ESLint issues                           |
+### Work Experience
+Work entries are managed in `src/pages/work/index.astro` as a structured TypeScript array. This approach provides flexibility for complex formatting while maintaining type safety.
 
-## 🏛️ License
+### Site Configuration
+Core site settings are centralized in `src/consts.ts`:
+- Personal information and contact details
+- Social media links
+- Content display limits (e.g., number of projects on homepage)
+- SEO metadata defaults
 
-MIT
+## Development
+
+### Available Commands
+
+| Command | Purpose |
+|---------|---------|
+| `npm run dev` | Start development server with hot reload |
+| `npm run build` | Generate production build |
+| `npm run preview` | Preview production build locally |
+| `npm run lint` | Run ESLint on all source files |
+| `npm run lint:fix` | Auto-fix linting issues |
+
+### Adding Content
+
+**New Project:**
+1. Create folder in `src/content/projects/`
+2. Add `index.md` with required frontmatter
+3. Include any assets in the project folder
+
+**New Work Entry:**
+1. Add entry to the `experience` array in `src/pages/work/index.astro`
+2. Follow the existing TypeScript interface structure
+
+## Deployment
+
+The site is optimized for deployment on modern static hosting platforms:
+
+- **Vercel** - Automatic deployments from GitHub (recommended)
+- **Netlify** - Alternative static hosting with CI/CD
+- **GitHub Pages** - Free option for personal projects
+
+Build artifacts are generated to `./dist/` and can be deployed to any static file host.
+
+## Performance Features
+
+- **Zero JavaScript by default** - Only ships JS when needed
+- **Optimized images** - Automatic image optimization and lazy loading
+- **Minimal CSS** - Tailwind's purge removes unused styles
+- **Fast builds** - Astro's partial hydration and optimized bundling
+
+## License
+
+MIT - feel free to use this as a starting point for your own portfolio.
+
+---
+
+**Contact:** liam@liamtab.dev | [LinkedIn](https://www.linkedin.com/in/liamtabibzadeh) | [GitHub](https://github.com/liamtabib)
