@@ -1,7 +1,7 @@
 ---
 title: "SubSnap"
 description: "App that curates subreddits posts and delivers via email with AI summaries"
-date: "Jun 2025"
+date: "May 2025"
 repoURL: "https://github.com/liamtabib/SubSnap"
 ---
 
