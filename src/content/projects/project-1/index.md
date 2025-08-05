@@ -3,24 +3,20 @@ title: "SubSnap"
 description: "App that curates subreddits posts and delivers via email with AI summaries"
 date: "May 2025"
 repoURL: "https://github.com/liamtabib/SubSnap"
+image: "/demo.gif"
+license: "MIT"
 ---
+Automated Reddit curation service that filters top posts from specified subreddits and delivers AI-generated summaries via email. Built to explore Reddit API integration and AI-powered content processing.
 
-SubSnap is a Reddit service that automatically curates top posts from specified subreddits and delivers them via email with AI summaries.
+## Architecture
 
-## Features
+The main components are, in the order:
 
-- **Rule-based Curation**: Filters posts based on upvotes and relevance
-- **AI Summaries**: Generates summaries of posts and comments
-- **Real-time Fact-checking**: Integrates web search for background information and context augmentation
-- **Cron-based Email Delivery**: Automatically sends HTML-formatted emails on pre-defined schedules
+1. **Reddit API** - Fetches top posts from specified subreddits using Reddit's great API
+2. **Content Filtering** - Applies rule-based selection based on upvotes, post age, and other metrics to filter only relevant posts
+3. **Summarization with AI** - Processes post content and comments using OpenAI vision-language models to generate summaries, also capable of handling images in the posts
+4. **Context Augmentation** - Uses web search to provide additional background information on each post. Especially useful for posts referencing external sites and products
+5. **Email Generation** - Formats summaries (using SMTP) into HTML emails with beatiful structured layout and automatically sends on schedule
 
-
-## Technology used
-
-- **AI Integration**: AI summarization using the multimodal GPT-4o model with web search capabilities for context augmentation.
-- **Email Service**: HTML email formatting and delivery
-
-## Impact
-
-The service reduces time spent browsing Reddit by automatically delivering only the most relevant content, allowing users to stay informed on the latest news without wasting time endlessly scrolling.
+## Demo
 
