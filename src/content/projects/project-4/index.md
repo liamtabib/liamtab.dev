@@ -1,26 +1,26 @@
 ---
 title: "GeoStreamline"
-description: "Data pipeline for collecting and analyzing café/restaurant data across European cities"
+description: "Data pipelines with Python, Dagster, and GCP"
 date: "Aug 2025"
 demoURL: "https://www.geostreamline.dev/"
 repoURL: "https://github.com/liamtabib/geostreamline"
 image: "/architecture.png"
 license: "MIT"
 ---
-
-A collection of data pipelines for analyzing café and restaurant metrics across North European cities. Built as a learning project to explore modern data engineering with Python, Dagster, and GCP.
+A collection of data pipelines for analyzing café and restaurant metrics in a few cities. Built as a learning project to explore end-to-end data pipelines with Python, Dagster, and GCP.
 
 ## Architecture
 
-The pipeline consists of 6 dagster orchestrated stages:
+The pipeline consists of dagster orchestrated components:
 
 1. **Data Ingestion** - Fetches place counts from Google Places Aggregate API and stores timestamped JSON in GCS
-2. **File Conversion** - Transforms JSON to Parquet with flattened columns for city, place_type (café or restaurant), rating_filter (> 4.5), and count
+2. **File Conversion** - Converts JSON to Parquet with flattened fields, again storing in GCS
 3. **BigQuery Load** - Ingests Parquet files into BQ table
-4. **dbt Transformation** - Models raw data into metrics in another Bigquery table using dbt core.
-5. **Dashboard Export** - Exports BigQuery data to local DuckDB file as a workaround for Evidence.dev plugin issue
-6. **Dashboard Refresh** - Updates Evidence.dev dashboard with latest data
+4. **dbt Transformation** - Models those raw data into aggregate metrics and stores in another Bigquery table
+5. **Dashboard Export** - Exports BigQuery data to local DuckDB file due to Evidence.dev BigQuery plugin issue
+6. **Dashboard Refresh** - Updates Evidence.dev dashboard with fresh data
+
 
 ## Notes
 
-The project structure has separate modules for ingestion, storage in GCS/BigQuery, dbt transformations, and dashboard module. We support manual execution of individual pipeline stages, and a dagster pipeline deployed on GitHub Actions in a monthly cron schedule.
+The project has separate modules for ingestion, storage in GCS/BigQuery, dbt transformations, and dashboard module. You can run each individual pipeline manually. Currently, the project is deployed on GitHub Actions running the dagster pipeline in a monthly cron basis.

@@ -68,10 +68,19 @@ const { Content } = await project.render();
         </nav>
       )}
     </div>
+    {project.data.image && project.data.title === "GeoStreamline" && (
+      <div class="animate my-12">
+        <img 
+          src={project.data.image} 
+          alt={project.data.title}
+          class="w-full h-auto rounded-lg"
+        />
+      </div>
+    )}
     <article class="animate">
       <Content />
     </article>
-    {project.data.image && (
+    {project.data.image && project.data.title !== "GeoStreamline" && (
       <div class="animate my-8">
         <img 
           src={project.data.image} 
